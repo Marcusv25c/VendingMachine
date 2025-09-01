@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics;
-using VendingMachine.Repo;
+using VendingMachine.Service;
 
 namespace VendingMachine
 {
@@ -7,11 +7,11 @@ namespace VendingMachine
     {
         static void Main(string[] args)
         {
-            SlotRepo _slotRepo = new SlotRepo();
+            Service.VendingMachine _service = new Service.VendingMachine();
 
             Console.WriteLine($"Hello, World!\n");
 
-            _slotRepo.CreateSlots();
+            
 
         }
     }

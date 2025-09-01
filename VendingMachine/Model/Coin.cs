@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace VendingMachine.Model
 {
-    internal class Bank
+    internal class Coin
     {
+        private int _value;
+
+        public Coin(int value)
+        {
+
+        }
     }
 }
