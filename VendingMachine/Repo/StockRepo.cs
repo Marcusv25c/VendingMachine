@@ -9,7 +9,7 @@ namespace VendingMachine.Repo
 {
     internal class StockRepo
     {
-        private Queue<Product> _slot1 = new Queue<Product>();
+        private Queue<Product> _slot1 = new Queue<Product>(new Product("Harboe Pils", 5));
         private Queue<Product> _slot2 = new Queue<Product>();
         private Queue<Product> _slot3 = new Queue<Product>();
         private Queue<Product> _slot4 = new Queue<Product>();

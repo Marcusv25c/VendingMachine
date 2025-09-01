@@ -11,8 +11,10 @@ namespace VendingMachine
 
             Console.WriteLine($"Hello, World!\n");
 
-            
-
+            while (true)
+            {
+                _service.ChooseProduct(Int32.Parse(Console.ReadLine()));
+            }
         }
     }
 }
