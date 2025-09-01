@@ -18,12 +18,116 @@ namespace VendingMachine.Repo
         private Queue<Product> _slot7 = new Queue<Product>();
         private Queue<Product> _slot8 = new Queue<Product>();
 
-        public void ChooseProduct(int slot)
+        public int ChooseProduct(int slot)
         {
-            switch(slot)
+            int price = 0;
+            Product temp = null;
+            switch (slot)
             {
                 case 1:
-
+                    {
+                        try
+                        {
+                            temp = _slot1.Peek();
+                            price = temp.Price;
+                            return price;
+                        }
+                        catch
+                        {
+                            throw new Exception("Udsolgt");
+                        }
+                    }
+                case 2:
+                    {
+                        try
+                        {
+                            temp = _slot2.Peek();
+                            price = temp.Price;
+                            return price;
+                        }
+                        catch
+                        {
+                            throw new Exception("Udsolgt");
+                        }
+                    }
+                case 3:
+                    {
+                        try
+                        {
+                            temp = _slot3.Peek();
+                            price = temp.Price;
+                            return price;
+                        }
+                        catch
+                        {
+                            throw new Exception("Udsolgt");
+                        }
+                    }
+                case 4:
+                    {
+                        try
+                        {
+                            temp = _slot4.Peek();
+                            price = temp.Price;
+                            return price;
+                        }
+                        catch
+                        {
+                            throw new Exception("Udsolgt");
+                        }
+                    }
+                case 5:
+                    {
+                        try
+                        {
+                            temp = _slot5.Peek();
+                            price = temp.Price;
+                            return price;
+                        }
+                        catch
+                        {
+                            throw new Exception("Udsolgt");
+                        }
+                    }
+                case 6:
+                    {
+                        try
+                        {
+                            temp = _slot6.Peek();
+                            price = temp.Price;
+                            return price;
+                        }
+                        catch
+                        {
+                            throw new Exception("Udsolgt");
+                        }
+                    }
+                case 7:
+                    {
+                        try
+                        {
+                            temp = _slot7.Peek();
+                            price = temp.Price;
+                            return price;
+                        }
+                        catch
+                        {
+                            throw new Exception("Udsolgt");
+                        }
+                    }
+                case 8:
+                    {
+                        try
+                        {
+                            temp = _slot8.Peek();
+                            price = temp.Price;
+                            return price;
+                        }
+                        catch
+                        {
+                            throw new Exception("Udsolgt");
+                        }
+                    }
 
                 default:
                     {

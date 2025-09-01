@@ -11,8 +11,8 @@ namespace VendingMachine.Model
         private string _name;
         private int _price;
 
-        protected string Name { get { return _name; } set { _name = value; } }
-        protected int Price { get { return _price; } set { _price = value; } }
+        public string Name { get { return _name; } set { _name = value; } }
+        public int Price { get { return _price; } set { _price = value; } }
 
         public Product (string name, int price)
         {
