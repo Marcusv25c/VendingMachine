@@ -1,16 +1,17 @@
 ﻿using System.Diagnostics;
+using VendingMachine.Repo;
 
 namespace VendingMachine
 {
     internal class Program
     {
-        private 
         static void Main(string[] args)
         {
+            SlotRepo _slotRepo = new SlotRepo();
 
             Console.WriteLine($"Hello, World!\n");
 
-            .CreateSlots();
+            _slotRepo.CreateSlots();
 
         }
     }

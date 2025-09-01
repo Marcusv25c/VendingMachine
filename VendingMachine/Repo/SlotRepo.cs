@@ -14,7 +14,7 @@ namespace VendingMachine.Repo
 
         public void CreateSlots()
         {
-            for (int i = 1; i < 16; i++)
+            for (int i = 1; i <= 16; i++)
             {
                 _slots.Add(new Slot(i.ToString()));
             }
