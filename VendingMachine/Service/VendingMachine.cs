@@ -9,6 +9,9 @@ namespace VendingMachine.Service
 {
     internal class VendingMachine
     {
+        private int _price;
+        private List<int> _paid;
+        private int _paidSum = 0;
         private BankRepo _bankRepo;
         private StockRepo _stockRepo = new StockRepo();
 
@@ -17,7 +20,8 @@ namespace VendingMachine.Service
             
                 try
                 {
-                    _stockRepo.ChooseProduct(slot);
+                    _price = _stockRepo.ChooseProduct(slot);
+                    Console.WriteLine($"Indsæt mønter: {_price} kr.");
                 }
 
                 catch (ArgumentOutOfRangeException)
@@ -28,7 +32,38 @@ namespace VendingMachine.Service
                 {
                     Console.WriteLine(ex.Message);
                 }
-            
+
+            Payment();
+
+            _stockRepo.ExtractProduct(slot);
+
+        }
+
+        public void Payment()
+        {
+            while (_paidSum < _price)
+            {
+                //try.. catch here
+                int newCoin = Int32.Parse(Console.ReadLine());
+                if (newCoin == 1 || newCoin == 2 || newCoin == 5 || newCoin == 10 || newCoin == 20 )
+                {
+                    _paidSum += newCoin;
+                    _paid.Add(newCoin);
+                }
+
+                else
+                {
+                    Console.WriteLine("Ugyldigt mønt");
+                }
+            }
+
+            _bankRepo.ReceivePayment(_paid);
+
+            //if (_paidSum > _price)
+            //{
+            //    _bankRepo.GiveChange(_paidSum - _price);
+            //}
+
         }
     }
 }

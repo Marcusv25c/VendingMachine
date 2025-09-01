@@ -16,7 +16,7 @@ namespace VendingMachine.Repo
         private Queue<Coin> _coins10 = new Queue<Coin>();
         private Queue<Coin> _coins20 = new Queue<Coin>();
 
-        public void ReceiveChange(List<int> received)
+        public void ReceivePayment(List<int> received)
         {
             foreach (int value in received)
             {

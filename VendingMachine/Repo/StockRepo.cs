@@ -9,7 +9,9 @@ namespace VendingMachine.Repo
 {
     internal class StockRepo
     {
-        private Queue<Product> _slot1 = new Queue<Product>(new Product("Harboe Pils", 5));
+        
+        private int _cap = 8;
+        private Queue<Product> _slot1 = new Queue<Product>();
         private Queue<Product> _slot2 = new Queue<Product>();
         private Queue<Product> _slot3 = new Queue<Product>();
         private Queue<Product> _slot4 = new Queue<Product>();
@@ -18,6 +20,10 @@ namespace VendingMachine.Repo
         private Queue<Product> _slot7 = new Queue<Product>();
         private Queue<Product> _slot8 = new Queue<Product>();
 
+        public StockRepo()
+        {
+            _slot1.Enqueue(new Product("Harboe Pils", 5));
+        }
         public int ChooseProduct(int slot)
         {
             int price = 0;
@@ -135,5 +141,12 @@ namespace VendingMachine.Repo
                     }
             }
         }
+
+        public void ExtractProduct(int slot)
+        {
+
+        }
     }
+
+
 }
