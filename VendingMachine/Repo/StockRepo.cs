@@ -144,7 +144,57 @@ namespace VendingMachine.Repo
 
         public void ExtractProduct(int slot)
         {
-
+            switch (slot)
+            {
+                case 1:
+                    {
+                       Product toExtract = _slot1.Dequeue();
+                        Console.WriteLine($"Her er din {toExtract.Name}");
+                        break;
+                    }
+                case 2:
+                    {
+                        Product toExtract = _slot2.Dequeue();
+                        Console.WriteLine($"Her er din {toExtract.Name}");
+                        break;
+                    }
+                case 3:
+                    {
+                        Product toExtract = _slot3.Dequeue();
+                        Console.WriteLine($"Her er din {toExtract.Name}");
+                        break;
+                    }
+                case 4:
+                    {
+                        Product toExtract = _slot4.Dequeue();
+                        Console.WriteLine($"Her er din {toExtract.Name}");
+                        break;
+                    }
+                case 5:
+                    {
+                        Product toExtract = _slot5.Dequeue();
+                        Console.WriteLine($"Her er din {toExtract.Name}");
+                        break;
+                    }
+                case 6:
+                    {
+                        Product toExtract = _slot6.Dequeue();
+                        Console.WriteLine($"Her er din {toExtract.Name}");
+                        break;
+                    }
+                case 7:
+                    {
+                        Product toExtract = _slot7.Dequeue();
+                        Console.WriteLine($"Her er din {toExtract.Name}");
+                        break;
+                    }
+                case 8:
+                    {
+                        Product toExtract = _slot8.Dequeue();
+                        Console.WriteLine($"Her er din {toExtract.Name}");
+                        break;
+                    }
+            }
         }
     }
 

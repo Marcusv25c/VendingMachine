@@ -10,9 +10,9 @@ namespace VendingMachine.Service
     internal class VendingMachine
     {
         private int _price;
-        private List<int> _paid;
+        private List<int> _paid = new List<int>();
         private int _paidSum = 0;
-        private BankRepo _bankRepo;
+        private BankRepo _bankRepo = new BankRepo();
         private StockRepo _stockRepo = new StockRepo();
 
         public void ChooseProduct(int slot)
