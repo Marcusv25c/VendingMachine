@@ -62,7 +62,9 @@ namespace VendingMachine.Repo
                     case 5:
                         {
                             _coins5.Enqueue(new Coin(value));
+                            Debug.WriteLine($"coiins5: {_coins5.Count}");
                             break;
+
                         }
                     case 10:
                         {
@@ -92,9 +94,12 @@ namespace VendingMachine.Repo
 
                 if (amount > 9)
                 {
+                    Debug.WriteLine($"amount > 9");
                     Coin temp = _coins10.Dequeue();
+                    Debug.WriteLine($"temp: {temp.Value}");
                     coins.Add(temp.Value);
                     amount -= temp.Value;
+                    Debug.WriteLine($"amount: {amount}");
                 }
 
                 if (amount > 4)

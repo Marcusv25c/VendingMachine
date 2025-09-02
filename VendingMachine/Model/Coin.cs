@@ -8,13 +8,11 @@ namespace VendingMachine.Model
 {
     internal class Coin
     {
-        private int _value;
-
         public int Value { get; private set; }
 
         public Coin(int value)
         {
-            _value = value;
+            Value = value;
         }
     }
 }
