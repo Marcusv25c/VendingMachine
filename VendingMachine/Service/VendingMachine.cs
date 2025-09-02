@@ -22,6 +22,8 @@ namespace VendingMachine.Service
                 {
                     _price = _stockRepo.ChooseProduct(slot);
                     Console.WriteLine($"Indsæt mønter: {_price} kr.");
+                    Payment();
+                    _stockRepo.ExtractProduct(slot);
                 }
 
                 catch (ArgumentOutOfRangeException)
@@ -33,9 +35,7 @@ namespace VendingMachine.Service
                     Console.WriteLine(ex.Message);
                 }
 
-            Payment();
-
-            _stockRepo.ExtractProduct(slot);
+            
 
         }
 
