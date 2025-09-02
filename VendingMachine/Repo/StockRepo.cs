@@ -24,8 +24,9 @@ namespace VendingMachine.Repo
         {
             while (_slot1.Count < _cap)
             {
-                _slot1.Enqueue(new Product("Harboe Pils", 5));
+                _slot1.Enqueue(new Product("Harboe Pils", 5));  
             }
+            _slot2.Enqueue(new Product("Harboe Pils", 5));
         }
         public int ChooseProduct(int slot)
         {
