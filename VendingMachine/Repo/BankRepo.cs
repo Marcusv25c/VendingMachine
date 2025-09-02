@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,32 @@ namespace VendingMachine.Repo
         private Queue<Coin> _coins5 = new Queue<Coin>();
         private Queue<Coin> _coins10 = new Queue<Coin>();
         private Queue<Coin> _coins20 = new Queue<Coin>();
+
+        public BankRepo()
+        {
+            while (_coins1.Count < 10)
+            {
+                _coins1.Enqueue(new Coin(1));
+                Debug.WriteLine($"BankRepo: {_coins1.Count}");
+            }
+
+            while(_coins2.Count < 10)
+            {
+                _coins2.Enqueue(new Coin(2));
+            }
+
+            while(_coins5.Count < 10)
+            {
+                _coins5.Enqueue(new Coin(5));
+            }
+
+            while(_coins10.Count < 10)
+            {
+                _coins10.Enqueue(new Coin(10));
+            }
+
+
+        }
 
         public void ReceivePayment(List<int> received)
         {
@@ -55,5 +82,48 @@ namespace VendingMachine.Repo
 
 
         }
+
+        public List<int> GiveChange(int amount)
+        {
+            List<int> coins = new List<int>();
+            Debug.WriteLine($"GiveChange: coins10: {_coins10.Count}");
+            while (amount > 0)
+            {
+
+                if (amount > 9)
+                {
+                    Coin temp = _coins10.Dequeue();
+                    coins.Add(temp.Value);
+                    amount -= temp.Value;
+                }
+
+                if (amount > 4)
+                {
+                    Coin temp = _coins5.Dequeue();
+                    coins.Add(temp.Value);
+                    amount -= temp.Value;
+                }
+
+                if (amount > 1)
+                {
+                    Coin temp = _coins2.Dequeue();
+                    coins.Add(temp.Value);
+                    amount -= temp.Value;
+                }
+
+                if (amount == 1)
+                {
+                    Coin temp = _coins1.Dequeue();
+                    coins.Add(temp.Value);
+                    amount -= temp.Value;
+                }
+
+            }//While end
+
+            return coins;
+
+
+        }
+
     }
 }

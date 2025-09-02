@@ -32,12 +32,12 @@ namespace VendingMachine.Service
                 {
                     Console.WriteLine("Pladsen findes ikke");
                 }
+
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
-
-            
+                      
 
         }
 
@@ -62,10 +62,16 @@ namespace VendingMachine.Service
             _bankRepo.ReceivePayment(_paid);
 
 
-            //if (_paidSum > _price)
-            //{
-            //    _bankRepo.GiveChange(_paidSum - _price);
-            //}
+            if (_paidSum > _price)
+            {
+                List<int> change = _bankRepo.GiveChange(_paidSum - _price);
+                Console.WriteLine("Byttepenge: ");
+
+                foreach (int coin in change)
+                {
+                    Console.Write($"{coin}   ");
+                }
+            }
             _paid = new List<int>();
             _paidSum = 0;
         }
