@@ -12,7 +12,7 @@ namespace VendingMachine.Model
 
         public Coin(int value)
         {
-
+            _value = value;
         }
     }
 }
