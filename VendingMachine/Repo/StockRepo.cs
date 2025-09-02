@@ -22,7 +22,10 @@ namespace VendingMachine.Repo
 
         public StockRepo()
         {
-            _slot1.Enqueue(new Product("Harboe Pils", 5));
+            while (_slot1.Count < _cap)
+            {
+                _slot1.Enqueue(new Product("Harboe Pils", 5));
+            }
         }
         public int ChooseProduct(int slot)
         {
