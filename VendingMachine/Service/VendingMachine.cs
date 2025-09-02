@@ -59,11 +59,13 @@ namespace VendingMachine.Service
 
             _bankRepo.ReceivePayment(_paid);
 
+
             //if (_paidSum > _price)
             //{
             //    _bankRepo.GiveChange(_paidSum - _price);
             //}
-
+            _paid = new List<int>();
+            _paidSum = 0;
         }
     }
 }
