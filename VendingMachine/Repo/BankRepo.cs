@@ -17,31 +17,31 @@ namespace VendingMachine.Repo
         private Queue<Coin> _coins10 = new Queue<Coin>();
         private Queue<Coin> _coins20 = new Queue<Coin>();
 
-        public BankRepo()
-        {
-            while (_coins1.Count < 10)
-            {
-                _coins1.Enqueue(new Coin(1));
-                Debug.WriteLine($"BankRepo: {_coins1.Count}");
-            }
+        //public BankRepo()
+        //{
+        //    while (_coins1.Count < 10)
+        //    {
+        //        _coins1.Enqueue(new Coin(1));
+        //        Debug.WriteLine($"BankRepo: {_coins1.Count}");
+        //    }
 
-            while(_coins2.Count < 10)
-            {
-                _coins2.Enqueue(new Coin(2));
-            }
+        //    while(_coins2.Count < 10)
+        //    {
+        //        _coins2.Enqueue(new Coin(2));
+        //    }
 
-            while(_coins5.Count < 10)
-            {
-                _coins5.Enqueue(new Coin(5));
-            }
+        //    while(_coins5.Count < 10)
+        //    {
+        //        _coins5.Enqueue(new Coin(5));
+        //    }
 
-            while(_coins10.Count < 10)
-            {
-                _coins10.Enqueue(new Coin(10));
-            }
+        //    while(_coins10.Count < 10)
+        //    {
+        //        _coins10.Enqueue(new Coin(10));
+        //    }
 
 
-        }
+        //}
 
         public void ReceivePayment(List<int> received)
         {
@@ -128,6 +128,31 @@ namespace VendingMachine.Repo
             return coins;
 
 
+        }
+
+        public string FillBank()
+        {
+            while (_coins1.Count < 20)
+            {
+                _coins1.Enqueue(new Coin(1));
+            }
+
+            while (_coins2.Count < 10)
+            {
+                _coins2.Enqueue(new Coin(2));
+            }
+
+            while (_coins5.Count < 10)
+            {
+                _coins5.Enqueue(new Coin(5));
+            }
+
+            while (_coins10.Count < 10)
+            {
+                _coins10.Enqueue(new Coin(10));
+            }
+
+            return "pengebeholder fyldt";
         }
 
     }

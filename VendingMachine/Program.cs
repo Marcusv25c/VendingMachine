@@ -15,7 +15,7 @@ namespace VendingMachine
             while (input != "x")
             {
                 Console.WriteLine($"Got Beer?!\n");
-                Console.WriteLine($"Vælg produkt: \n  1-2: Harboe Pils \n  3-4: Grøn Tuborg \n  5-6: Hoegaarden \n  7-8: Hobgoblin\n");
+                Console.WriteLine($"Vælg produkt: \n  1-2: Harboe Pils \n  3-4: Classic \n  5-6: Gulddame \n  7-8: Liquid Death\n");
 
                 input = Console.ReadLine();
 
@@ -23,39 +23,60 @@ namespace VendingMachine
                 {
                     break;
                 }
+                if(input == "admin")
+                {
+                    Admin(args);
+                }
                 //Indsæt try.. catch
                 _service.ChooseProduct(Int32.Parse(input));
+
+                input = Console.ReadLine();
+                if (input == "tak")
+                {
+                    Console.WriteLine("Selv tak");
+                    Thread.Sleep(500);
+                }
+
+                Console.Clear();
+                Main(args);
             }
 
-            Console.Clear();
-            Main(args);
         }
 
-        //static void Admin()
-        //{
-        //    Service.VendingMachine _service = new Service.VendingMachine();
+        static void Admin(string[] args)
+        {
+            Service.VendingMachine _service = new Service.VendingMachine();
+            string input = "";
 
-        //    Console.WriteLine($"Vælg funktion: \n  1: Fyld varer \n  2: Tøm pengebeholder \n  9: Tilbage til menu \n");
-        //    string input = Console.ReadLine();
+            while (input != "9")
+            {
+                Console.WriteLine($"Vælg funktion: \n  1: Fyld varer \n  2: Fyld pengebeholder \n  9: Tilbage til menu \n");
+                input = Console.ReadLine();
 
-        //    switch (input)
-        //    {
-        //        case 1:
-        //            {
-        //                _service.FillAll();
-        //                break; 
-        //            }
-        //        case 2:
-        //            {
-        //                _service.EmptyBank();
-        //                break;
-        //            }
-        //        case 9:
-        //            {
-        //                Main(args);
+                switch (input)
+                {
+                    case "1":
+                        {
+                            foreach (string slot in _service.FillAll())
+                            {
+                                Console.WriteLine(slot);
+                            }
+                            break;
+                        }
+                    case "2":
+                        {
+                            Console.WriteLine(_service.FillBank());
+                            break;
+                        }
+                    case "9":
+                        {
+                            Main(args);
+                            break;
+                        }
+                }
+            }
 
-        //            }
-        //    }
-        //}
+            
+        }
     }
 }

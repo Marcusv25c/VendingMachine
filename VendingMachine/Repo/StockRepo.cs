@@ -200,6 +200,81 @@ namespace VendingMachine.Repo
                     }
             }
         }
+
+
+        public List<string> FillAll()
+        {
+            int counter = 0;
+            List<string> info = new List<string>();
+
+            while (_slot1.Count < _cap)
+            {
+                _slot1.Enqueue(new Product("Harboe Pils", 5));
+                counter++;
+            }
+            info.Add($"Hylde 1 opfyldt med: {counter.ToString()}x Harboe Pils");
+            counter = 0;
+
+            while (_slot2.Count < _cap)
+            {
+                _slot2.Enqueue(new Product("Harboe Pils", 5));
+                counter++;
+            }
+            info.Add($"Hylde 2 opfyldt med: {counter.ToString()}x Harboe Pils");
+            counter = 0;
+
+            while (_slot3.Count < _cap)
+            {
+                _slot3.Enqueue(new Product("Classic", 12));
+                counter++;
+            }
+            info.Add($"Hylde 3 opfyldt med: {counter.ToString()}x Classic");
+            counter = 0;
+
+            while (_slot4.Count < _cap)
+            {
+                _slot4.Enqueue(new Product("Classic", 12));
+                counter++;
+            }
+            info.Add($"Hylde 4 opfyldt med: {counter.ToString()}x Classic");
+            counter = 0;
+
+            while (_slot5.Count < _cap)
+            {
+                _slot5.Enqueue(new Product("Gulddame", 27));
+                counter++;
+            }
+            info.Add($"Hylde 5 opfyldt med: {counter.ToString()}x Gulddame");
+            counter = 0;
+
+            while (_slot6.Count < _cap)
+            {
+                _slot6.Enqueue(new Product("Gulddame", 27));
+                counter++;
+            }
+            info.Add($"Hylde 6 opfyldt med: {counter.ToString()}x Gulddame");
+            counter = 0;
+
+            while (_slot7.Count < _cap)
+            {
+                _slot7.Enqueue(new Product("Liquid Death", 15));
+                counter++;
+            }
+            info.Add($"Hylde 7 opfyldt med: {counter.ToString()}x Liquid Death");
+            counter = 0;
+
+            while (_slot8.Count < _cap)
+            {
+                _slot8.Enqueue(new Product("Liquid Death", 15));
+                counter++;
+            }
+            info.Add($"Hylde 8 opfyldt med: {counter.ToString()}x Liquid Death");
+            counter = 0;
+
+
+
+            return info;
+        }
     }
 
 

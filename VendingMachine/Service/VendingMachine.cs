@@ -71,9 +71,21 @@ namespace VendingMachine.Service
                 {
                     Console.Write($"{coin}   ");
                 }
+                Console.WriteLine();
             }
             _paid = new List<int>();
             _paidSum = 0;
         }
+
+        public List<string> FillAll()
+        {
+            return _stockRepo.FillAll();
+        }
+
+        public string FillBank()
+        {
+            return _bankRepo.FillBank();
+        }
+
     }
 }
