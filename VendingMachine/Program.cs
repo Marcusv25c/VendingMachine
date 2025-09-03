@@ -6,10 +6,19 @@ namespace VendingMachine
 {
     internal class Program
     {
+        public static Service.VendingMachine _service = new Service.VendingMachine();
 
         static void Main(string[] args)
         {
-            Service.VendingMachine _service = new Service.VendingMachine();
+            while (true)
+            {
+                Menu();
+            }
+            
+        }
+
+        static void Menu()
+        {
             string input = "";
 
             while (input != "x")
@@ -19,13 +28,13 @@ namespace VendingMachine
 
                 input = Console.ReadLine();
 
-                if(input  == "x")
+                if (input == "x")
                 {
                     break;
                 }
-                if(input == "admin")
+                if (input == "admin")
                 {
-                    Admin(args);
+                    Admin();
                 }
                 //Indsæt try.. catch
                 _service.ChooseProduct(Int32.Parse(input));
@@ -38,18 +47,16 @@ namespace VendingMachine
                 }
 
                 Console.Clear();
-                Main(args);
             }
 
         }
 
-        static void Admin(string[] args)
+        static void Admin()
         {
-            Service.VendingMachine _service = new Service.VendingMachine();
             string input = "";
 
-            while (input != "9")
-            {
+            while (input != "x")
+            { 
                 Console.WriteLine($"Vælg funktion: \n  1: Fyld varer \n  2: Fyld pengebeholder \n  9: Tilbage til menu \n");
                 input = Console.ReadLine();
 
@@ -70,7 +77,8 @@ namespace VendingMachine
                         }
                     case "9":
                         {
-                            Main(args);
+                            Console.Clear();
+                            Menu();
                             break;
                         }
                 }
